@@ -10,6 +10,7 @@ import java.awt.List;
 import java.util.ArrayList;
 import Pieces.*;
 import Game.*;
+import java.awt.Color;
 /**
  *
  * @author bdg7335
@@ -25,48 +26,47 @@ public class Board {
     public Board (Game game) {
         this.game = game;
         boardArray = new Piece[NUM_ROWS][NUM_COLS];
-        whitePieces = new ArrayList();
     }
     
     
     //set pieces for player 1
     public void setPlayer1Pieces() {
         for(int i = 0; i < 8; i++) {
-            Piece pawn = new Pawn(i, 6, this.game.player1);
+            boardArray[i][6] = new Pawn(i, 6, this.game.player1);
         }
         
-        Piece rook = new Rook(0, 7, this.game.player1);
-        Piece bishop = new Bishop(1, 7, this.game.player1);
-        Piece horse = new Horse(2, 7, this.game.player1);
-        Piece queen = new Queen(3, 7, this.game.player1);
-        Piece king = new King(4, 7, this.game.player1);
-        Piece horse2 = new Horse(5, 7, this.game.player1);
-        Piece bishop2 = new Bishop(6, 7, this.game.player1);
-        Piece rook2 = new Rook(7, 7, this.game.player1);
+        boardArray[0][7] = new Rook(0, 7, this.game.player1);
+        boardArray[1][7] = new Bishop(1, 7, this.game.player1);
+        boardArray[2][7] = new Horse(2, 7, this.game.player1);
+        boardArray[3][7] = new Queen(3, 7, this.game.player1);
+        boardArray[4][7] = new King(4, 7, this.game.player1);
+        boardArray[5][7] = new Horse(5, 7, this.game.player1);
+        boardArray[6][7] = new Bishop(6, 7, this.game.player1);
+        boardArray[7][7] = new Rook(7, 7, this.game.player1);
     }
     
     //set pieces for player 2
     public void setPlayer2Pieces() {
         for(int i = 0; i < 8; i++) {
-            Piece pawn = new Pawn(i, 1, this.game.player1);
+            boardArray[i][1] = new Pawn(i, 1, this.game.player2);
         }
         
-        Piece rook = new Rook(0, 0, this.game.player1);
-        Piece bishop = new Bishop(1, 0, this.game.player1);
-        Piece horse = new Horse(2, 0, this.game.player1);
-        Piece queen = new Queen(4, 0, this.game.player1);
-        Piece king = new King(3, 0, this.game.player1);
-        Piece horse2 = new Horse(5, 0, this.game.player1);
-        Piece bishop2 = new Bishop(6, 0, this.game.player1);
-        Piece rook2 = new Rook(7, 0, this.game.player1);
+        boardArray[0][0] = new Rook(0, 0, this.game.player2);
+        boardArray[1][0] = new Bishop(1, 0, this.game.player2);
+        boardArray[2][0] = new Horse(2, 0, this.game.player2);
+        boardArray[4][0] = new Queen(4, 0, this.game.player2);
+        boardArray[3][0] = new King(3, 0, this.game.player2);
+        boardArray[5][0] = new Horse(5, 0, this.game.player2);
+        boardArray[6][0] = new Bishop(6, 0, this.game.player2);
+        boardArray[7][0] = new Rook(7, 0, this.game.player2);
     }
     
     public boolean isCellEmpty(int row, int col) {
-        if(boardArray[row][col] == null) {
-            return true;
+        if(boardArray[row][col]!=null) {
+            return false;
         }
         else {
-            return false;
+            return true;
         }
     } 
     

@@ -24,10 +24,12 @@ public class ChessProject {
         System.out.print("Enter name of player2 (WHITE >> ");
         String player2 = keyboard.nextLine();
         
-        Game game = new Game();
-        Board currentBoard = new Board(game);
+        Player playerBlack = new Player(Color.BLACK, player1);
+        Player playerWhite = new Player(Color.WHITE, player2);
         
-        currentBoard.printBoard();
+        Game newGame = new Game(playerBlack, playerWhite);
+        newGame.gameBoard.printBoard();
+
         
         
     }

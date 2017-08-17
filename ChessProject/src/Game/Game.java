@@ -20,21 +20,15 @@ public class Game {
     final static int NUM_ROWS = 8;
     final static int NUM_COLS = 8;
     
-    public Game() {
-        setGame();
-        setPlayers();
-    }
-    
-    public void setGame() {
+    public Game(Player player1, Player player2) {
+        this.player1 = player1;
+        this.player2 = player2;
         gameBoard = new Board(this);
         gameBoard.setPlayer1Pieces();
         gameBoard.setPlayer2Pieces();
     }
-    
-    public void setPlayers() {
-        player1 = new Player(Color.WHITE);
-        player2 = new Player(Color.BLACK);
-    }
+
+
     
     
 }
