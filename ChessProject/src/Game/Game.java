@@ -22,11 +22,11 @@ public class Game {
     
     public Game() {
         setGame();
+        setPlayers();
     }
     
     public void setGame() {
         gameBoard = new Board(this);
-        setPlayers();
         gameBoard.setPlayer1Pieces();
         gameBoard.setPlayer2Pieces();
     }

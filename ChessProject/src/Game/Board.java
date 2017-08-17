@@ -6,8 +6,6 @@
 package Game; //test
 //aaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
-//hello my name is marco asdfidkasflkasdjfl
-
 import java.awt.List;
 import java.util.ArrayList;
 import Pieces.*;
@@ -30,6 +28,8 @@ public class Board {
         whitePieces = new ArrayList();
     }
     
+    
+    //set pieces for player 1
     public void setPlayer1Pieces() {
         for(int i = 0; i < 8; i++) {
             Piece pawn = new Pawn(i, 6, this.game.player1);
@@ -45,6 +45,7 @@ public class Board {
         Piece rook2 = new Rook(7, 7, this.game.player1);
     }
     
+    //set pieces for player 2
     public void setPlayer2Pieces() {
         for(int i = 0; i < 8; i++) {
             Piece pawn = new Pawn(i, 1, this.game.player1);
@@ -59,5 +60,46 @@ public class Board {
         Piece bishop2 = new Bishop(6, 0, this.game.player1);
         Piece rook2 = new Rook(7, 0, this.game.player1);
     }
+    
+    public boolean isCellEmpty(int row, int col) {
+        if(boardArray[row][col] == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    } 
+    
+    public void printBoard() {
+        for(int i = 0; i < NUM_ROWS; i++) {
+            for(int j = 0; j < NUM_COLS; j++) {
+                if(isCellEmpty(i, j)) {
+                    System.out.print("|_|");
+                }
+                else {
+                    if(boardArray[i][j] instanceof Pawn) {
+                        System.out.print("|P|");
+                    }
+                    else if(boardArray[i][j] instanceof Rook) {
+                        System.out.print("|R|");
+                    }
+                    else if(boardArray[i][j] instanceof Bishop) {
+                        System.out.print("|B|");
+                    }
+                    else if(boardArray[i][j] instanceof Horse) {
+                        System.out.print("|H|");
+                    }
+                    else if(boardArray[i][j] instanceof Queen) {
+                        System.out.print("|Q|");
+                    }
+                    else if(boardArray[i][j] instanceof King) {
+                        System.out.print("|K|");
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+    
     
 }

@@ -17,7 +17,7 @@ public class Pawn extends Piece {
 
     @Override
     public boolean isValidPath(int finalX, int finalY) {
-        
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
