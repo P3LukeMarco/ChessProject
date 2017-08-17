@@ -32,33 +32,33 @@ public class Board {
     //set pieces for player 1
     public void setPlayer1Pieces() {
         for(int i = 0; i < 8; i++) {
-            boardArray[i][6] = new Pawn(i, 6, this.game.player1);
+            boardArray[6][i] = new Pawn(i, 6, this.game.player1);
         }
         
-        boardArray[0][7] = new Rook(0, 7, this.game.player1);
-        boardArray[1][7] = new Bishop(1, 7, this.game.player1);
-        boardArray[2][7] = new Horse(2, 7, this.game.player1);
-        boardArray[3][7] = new Queen(3, 7, this.game.player1);
-        boardArray[4][7] = new King(4, 7, this.game.player1);
-        boardArray[5][7] = new Horse(5, 7, this.game.player1);
-        boardArray[6][7] = new Bishop(6, 7, this.game.player1);
+        boardArray[7][0] = new Rook(0, 7, this.game.player1);
+        boardArray[7][1] = new Bishop(1, 7, this.game.player1);
+        boardArray[7][2] = new Horse(2, 7, this.game.player1);
+        boardArray[7][3] = new Queen(3, 7, this.game.player1);
+        boardArray[7][4] = new King(4, 7, this.game.player1);
+        boardArray[7][5] = new Horse(5, 7, this.game.player1);
+        boardArray[7][6] = new Bishop(6, 7, this.game.player1);
         boardArray[7][7] = new Rook(7, 7, this.game.player1);
     }
     
     //set pieces for player 2
     public void setPlayer2Pieces() {
         for(int i = 0; i < 8; i++) {
-            boardArray[i][1] = new Pawn(i, 1, this.game.player2);
+            boardArray[1][i] = new Pawn(i, 1, this.game.player2);
         }
         
         boardArray[0][0] = new Rook(0, 0, this.game.player2);
-        boardArray[1][0] = new Bishop(1, 0, this.game.player2);
-        boardArray[2][0] = new Horse(2, 0, this.game.player2);
-        boardArray[4][0] = new Queen(4, 0, this.game.player2);
-        boardArray[3][0] = new King(3, 0, this.game.player2);
-        boardArray[5][0] = new Horse(5, 0, this.game.player2);
-        boardArray[6][0] = new Bishop(6, 0, this.game.player2);
-        boardArray[7][0] = new Rook(7, 0, this.game.player2);
+        boardArray[0][1] = new Bishop(1, 0, this.game.player2);
+        boardArray[0][2] = new Horse(2, 0, this.game.player2);
+        boardArray[0][3] = new Queen(4, 0, this.game.player2);
+        boardArray[0][4] = new King(3, 0, this.game.player2);
+        boardArray[0][5] = new Horse(5, 0, this.game.player2);
+        boardArray[0][6] = new Bishop(6, 0, this.game.player2);
+        boardArray[0][7] = new Rook(7, 0, this.game.player2);
     }
     
     public boolean isCellEmpty(int row, int col) {
