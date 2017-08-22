@@ -39,6 +39,10 @@ public class ChessProject {
         game.gameBoard.movePiece(game.gameBoard.boardArray[5][2], 2, 4);
         game.gameBoard.printBoard();
         
+        System.out.println("Moving player 1's Bishop forward");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[7][1], 4, 4);
+        game.gameBoard.printBoard();
+        
         
         
     }

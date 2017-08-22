@@ -130,7 +130,10 @@ public class Board {
         if(boardArray[finalY][finalX] == null) {
             if(piece.isValidPath(finalX, finalY)) {
                 setNewPieceLocation(piece, finalY, finalX);
-            }   
+            }
+            else {
+                System.out.println("INVALID MOVE");
+            }
         }
         else {
             System.out.println("INVALID MOVE");
