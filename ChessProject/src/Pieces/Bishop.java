@@ -19,7 +19,12 @@ public class Bishop extends Piece{
 
     @Override
     public boolean isValidPath(int finalX, int finalY) {
-        return true;
+        int xDiff = Math.abs(this.x - finalX);
+        int yDiff = Math.abs(this.y - finalY);
+        if(xDiff == yDiff) {
+            return true;
+        }
+        return false;
     }
 
     @Override
