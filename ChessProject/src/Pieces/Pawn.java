@@ -5,6 +5,7 @@
  */
 package Pieces;
 import Game.*;
+import java.awt.Color;
 /**
  *
  * @author bdg7335
@@ -19,7 +20,15 @@ public class Pawn extends Piece {
 
     @Override
     public boolean isValidPath(int finalX, int finalY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.player.playerColor == Color.BLACK) {
+            if(this.y - finalY == 1 && this.x - finalX == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        return false;
     }
 
     @Override

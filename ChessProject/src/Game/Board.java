@@ -26,23 +26,25 @@ public class Board {
     public Board (Game game) {
         this.game = game;
         boardArray = new Piece[NUM_ROWS][NUM_COLS];
+        setPlayer1Pieces();
+        setPlayer2Pieces();
     }
     
     
     //set pieces for player 1
     public void setPlayer1Pieces() {
         for(int i = 0; i < 8; i++) {
-            boardArray[6][i] = new Pawn(i, 6, this.game.player1);
+            boardArray[6][i] = new Pawn(i, 6, game.player1);
         }
         
-        boardArray[7][0] = new Rook(0, 7, this.game.player1);
-        boardArray[7][1] = new Bishop(1, 7, this.game.player1);
-        boardArray[7][2] = new Horse(2, 7, this.game.player1);
-        boardArray[7][3] = new Queen(3, 7, this.game.player1);
-        boardArray[7][4] = new King(4, 7, this.game.player1);
-        boardArray[7][5] = new Horse(5, 7, this.game.player1);
-        boardArray[7][6] = new Bishop(6, 7, this.game.player1);
-        boardArray[7][7] = new Rook(7, 7, this.game.player1);
+        boardArray[7][0] = new Rook(0, 7, game.player1);
+        boardArray[7][1] = new Bishop(1, 7, game.player1);
+        boardArray[7][2] = new Horse(2, 7, game.player1);
+        boardArray[7][3] = new Queen(3, 7, game.player1);
+        boardArray[7][4] = new King(4, 7, game.player1);
+        boardArray[7][5] = new Horse(5, 7, game.player1);
+        boardArray[7][6] = new Bishop(6, 7, game.player1);
+        boardArray[7][7] = new Rook(7, 7, game.player1);
     }
     
     //set pieces for player 2
@@ -61,19 +63,32 @@ public class Board {
         boardArray[0][7] = new Rook(7, 0, this.game.player2);
     }
     
-    public boolean isCellEmpty(int row, int col) {
-        if(boardArray[row][col]!=null) {
-            return false;
-        }
-        else {
-            return true;
-        }
-    } 
+    /**
+     * A function that transfers a piece to a new location, and clears the board space at
+     * its previous location.
+     * @param piece the piece to move
+     * @param finalY the final X location
+     * @param finalX the final Y location
+     */
+    public void setNewPieceLocation(Piece piece, int finalY, int finalX)
+    {
+        int originX = piece.x;
+        int originY = piece.y;
+        System.out.println(originX + " " + originY);
+        boardArray[piece.y][piece.x] = null; //set starting point to empty
+        
+        piece.y = finalY; //set piece's new location
+        piece.x = finalX;
+        
+        boardArray[finalY][finalX] = piece; //set array to new piece's position
+    }
+    
+    
     
     public void printBoard() {
         for(int i = 0; i < NUM_ROWS; i++) {
             for(int j = 0; j < NUM_COLS; j++) {
-                if(isCellEmpty(i, j)) {
+                if(boardArray[i][j] == null) {
                     System.out.print("|_|");
                 }
                 else {
@@ -101,5 +116,25 @@ public class Board {
         }
     }
     
+    
+    
+       /**
+     * A function to move a piece. It checks to see if the move is valid for any piece, then it checks if
+     * that move is valid based on the piece's specific type. It handles capturing, then sets the new location.
+     * @param piece the piece to move
+     * @param finalX the final X location
+     * @param finalY the final Y location
+     */
+    public void movePiece(Piece piece, int finalX, int finalY)
+    {
+        if(boardArray[finalY][finalX] == null) {
+            if(piece.isValidPath(finalX, finalY)) {
+                setNewPieceLocation(piece, finalY, finalX);
+            }   
+        }
+        else {
+            System.out.println("INVALID MOVE");
+        }
+    }
     
 }

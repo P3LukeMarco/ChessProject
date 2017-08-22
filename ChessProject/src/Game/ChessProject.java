@@ -27,9 +27,18 @@ public class ChessProject {
         Player playerBlack = new Player(Color.BLACK, player1);
         Player playerWhite = new Player(Color.WHITE, player2);
         
-        Game newGame = new Game(playerBlack, playerWhite);
-        newGame.gameBoard.printBoard();
-
+        Game game = new Game(playerBlack, playerWhite);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 1's PAWN forward 1 square");
+        
+        game.gameBoard.movePiece(game.gameBoard.boardArray[6][2], 2, 5);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 1's PAWN forward 1 square");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[5][2], 2, 4);
+        game.gameBoard.printBoard();
+        
         
         
     }

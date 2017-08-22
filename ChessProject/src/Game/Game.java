@@ -24,8 +24,12 @@ public class Game {
         this.player1 = player1;
         this.player2 = player2;
         gameBoard = new Board(this);
-        gameBoard.setPlayer1Pieces();
-        gameBoard.setPlayer2Pieces();
+        setPlayers();
+    }
+    
+    public void setPlayers() {
+        player1.currentGame = this;
+        player2.currentGame = this;
     }
 
 

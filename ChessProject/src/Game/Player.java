@@ -21,7 +21,4 @@ public class Player {
         this.playerColor = playerColor;
         this.playerName = playerName;
     }
-    
-    
-    
 }
