@@ -28,6 +28,14 @@ public class Pawn extends Piece {
                 return false;
             }
         }
+        else if(this.player.playerColor == Color.WHITE){
+            if(finalY - this.y == 1 && this.x - finalX == 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
+         }
         return false;
     }
 

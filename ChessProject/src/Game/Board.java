@@ -74,7 +74,6 @@ public class Board {
     {
         int originX = piece.x;
         int originY = piece.y;
-        System.out.println(originX + " " + originY);
         boardArray[piece.y][piece.x] = null; //set starting point to empty
         
         piece.y = finalY; //set piece's new location
@@ -83,37 +82,55 @@ public class Board {
         boardArray[finalY][finalX] = piece; //set array to new piece's position
     }
     
-    
+    public boolean isCellEmpty(int x, int y) {
+        if(boardArray[y][x] == null) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     
     public void printBoard() {
-        for(int i = 0; i < NUM_ROWS; i++) {
-            for(int j = 0; j < NUM_COLS; j++) {
-                if(boardArray[i][j] == null) {
-                    System.out.print("|_|");
+        for(int i = 0; i < 9; i++) {
+            if(i < 8) {
+                System.out.print(i + " ");
+                for(int j = 0; j < NUM_COLS; j++) {
+
+                    if(boardArray[i][j] == null) {
+                        System.out.print("|_|");
+                    }
+                    else {
+                        if(boardArray[i][j] instanceof Pawn) {
+                            System.out.print("|P|");
+                        }
+                        else if(boardArray[i][j] instanceof Rook) {
+                            System.out.print("|R|");
+                        }
+                        else if(boardArray[i][j] instanceof Bishop) {
+                            System.out.print("|B|");
+                        }
+                        else if(boardArray[i][j] instanceof Horse) {
+                            System.out.print("|H|");
+                        }
+                        else if(boardArray[i][j] instanceof Queen) {
+                            System.out.print("|Q|");
+                        }
+                        else if(boardArray[i][j] instanceof King) {
+                            System.out.print("|K|");
+                        }
+                    }
                 }
-                else {
-                    if(boardArray[i][j] instanceof Pawn) {
-                        System.out.print("|P|");
+                System.out.println();
+            }
+            else {
+                    System.out.print("  ");
+                    for(int j = 0; j < NUM_COLS; j++) {
+                        System.out.print(" "+ (char)(j + 65)+ " ");
                     }
-                    else if(boardArray[i][j] instanceof Rook) {
-                        System.out.print("|R|");
-                    }
-                    else if(boardArray[i][j] instanceof Bishop) {
-                        System.out.print("|B|");
-                    }
-                    else if(boardArray[i][j] instanceof Horse) {
-                        System.out.print("|H|");
-                    }
-                    else if(boardArray[i][j] instanceof Queen) {
-                        System.out.print("|Q|");
-                    }
-                    else if(boardArray[i][j] instanceof King) {
-                        System.out.print("|K|");
-                    }
+                    System.out.println("\n");
                 }
             }
-            System.out.println();
-        }
     }
     
     
@@ -132,11 +149,11 @@ public class Board {
                 setNewPieceLocation(piece, finalY, finalX);
             }
             else {
-                System.out.println("INVALID MOVE");
+                System.out.println("\n!!!!!!!!!---------INVALID MOVE---------!!!!!!!!!");
             }
         }
         else {
-            System.out.println("INVALID MOVE");
+            System.out.println("\n!!!!!!!!!---------INVALID MOVE---------!!!!!!!!!");
         }
     }
     

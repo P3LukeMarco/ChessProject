@@ -30,19 +30,37 @@ public class ChessProject {
         Game game = new Game(playerBlack, playerWhite);
         game.gameBoard.printBoard();
         
-        System.out.println("Moving player 1's PAWN forward 1 square");
-        
+        System.out.println("Moving player 1's PAWN at (C,6) to (C,5)"); 
         game.gameBoard.movePiece(game.gameBoard.boardArray[6][2], 2, 5);
         game.gameBoard.printBoard();
         
-        System.out.println("Moving player 1's PAWN forward 1 square");
+        System.out.println("Moving player 1's PAWN at (C,5) to (C,4)");
         game.gameBoard.movePiece(game.gameBoard.boardArray[5][2], 2, 4);
         game.gameBoard.printBoard();
         
-        System.out.println("Moving player 1's Bishop forward");
+        System.out.println("Moving player 1's PAWN at (C,4) to (C,2)");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[4][2], 2, 2);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 1's Bishop at (1,7) to (E,4)");
         game.gameBoard.movePiece(game.gameBoard.boardArray[7][1], 4, 4);
         game.gameBoard.printBoard();
         
+        System.out.println("Moving player 1's Rook at (0,7) to (B,7)");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[7][0], 1, 7);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 1's Rook at (0,7) to (C,6)");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[7][1], 2, 6);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 2's PAWN at (H,1) to (H,2)");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[1][7], 7, 2);
+        game.gameBoard.printBoard();
+        
+        System.out.println("Moving player 2's Bishop at (G,0) to (H,1)");
+        game.gameBoard.movePiece(game.gameBoard.boardArray[0][6], 7, 1);
+        game.gameBoard.printBoard();
         
         
     }
