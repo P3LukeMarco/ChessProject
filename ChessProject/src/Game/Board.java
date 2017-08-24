@@ -38,14 +38,14 @@ public class Board {
             boardArray[6][i] = new Pawn(i, 6, game.player1);
         }
         
-        boardArray[7][0] = new Rook(0, 7, game.player1);
-        boardArray[7][1] = new Bishop(1, 7, game.player1);
-        boardArray[7][2] = new Horse(2, 7, game.player1);
-        boardArray[7][3] = new Queen(3, 7, game.player1);
-        boardArray[7][4] = new King(4, 4, game.player1);
-        boardArray[7][5] = new Horse(5, 7, game.player1);
-        boardArray[7][6] = new Bishop(6, 7, game.player1);
-        boardArray[7][7] = new Rook(7, 7, game.player1);
+        boardArray[7][0] = new Rook(0, 7, this.game.player1);
+        boardArray[7][1] = new Bishop(1, 7, this.game.player1);
+        boardArray[7][2] = new Horse(2, 7, this.game.player1);
+        boardArray[7][3] = new Queen(3, 7, this.game.player1);
+        boardArray[7][4] = new King(4, 7, this.game.player1);
+        boardArray[7][5] = new Horse(5, 7, this.game.player1);
+        boardArray[7][6] = new Bishop(6, 7, this.game.player1);
+        boardArray[7][7] = new Rook(7, 7, this.game.player1);
     }
     
     //set pieces for player 2
@@ -75,6 +75,7 @@ public class Board {
     {
         int originX = piece.x;
         int originY = piece.y;
+        
         boardArray[piece.y][piece.x] = null; //set starting point to empty
         
         piece.y = finalY; //set piece's new location
@@ -83,58 +84,16 @@ public class Board {
         boardArray[finalY][finalX] = piece; //set array to new piece's position
     }
     
-    public boolean isCellEmpty(int x, int y) {
-        if(boardArray[y][x] == null) {
+    
+    public boolean pieceIsCapturing(Piece piece, int finalX, int finalY) {
+        if(boardArray[finalY][finalX]!= null && boardArray[finalY][finalX].player != piece.player) {
+            System.out.println("Capturing Piece");
             return true;
         }
         else {
             return false;
         }
     }
-    
-    public void printBoard() {
-        for(int i = 0; i < 9; i++) {
-            if(i < 8) {
-                System.out.print(i + " ");
-                for(int j = 0; j < NUM_COLS; j++) {
-
-                    if(boardArray[i][j] == null) {
-                        System.out.print("|_|");
-                    }
-                    else {
-                        if(boardArray[i][j] instanceof Pawn) {
-                            System.out.print("|P|");
-                        }
-                        else if(boardArray[i][j] instanceof Rook) {
-                            System.out.print("|R|");
-                        }
-                        else if(boardArray[i][j] instanceof Bishop) {
-                            System.out.print("|B|");
-                        }
-                        else if(boardArray[i][j] instanceof Horse) {
-                            System.out.print("|H|");
-                        }
-                        else if(boardArray[i][j] instanceof Queen) {
-                            System.out.print("|Q|");
-                        }
-                        else if(boardArray[i][j] instanceof King) {
-                            System.out.print("|K|");
-                        }
-                    }
-                }
-                System.out.println();
-            }
-            else {
-                    System.out.print("  ");
-                    for(int j = 0; j < NUM_COLS; j++) {
-                        System.out.print(" "+ (char)(j + 65)+ " ");
-                    }
-                    System.out.println("\n");
-                }
-            }
-    }
-    
-    
     
        /**
      * A function to move a piece. It checks to see if the move is valid for any piece, then it checks if
@@ -145,8 +104,15 @@ public class Board {
      */
     public void movePiece(Piece piece, int finalX, int finalY)
     {
-        if(boardArray[finalY][finalX] == null) {
-            if(piece.isValidPath(finalX, finalY)) {
+        if(piece.isValidPath(finalX, finalY)) {
+            if(pieceIsCapturing(piece, finalX, finalY)) {
+                boardArray[finalY][finalX] = null;
+                boardArray[piece.y][piece.x] = null; //set starting point to empty
+                piece.y = finalY; //set piece's new location
+                piece.x = finalX;
+                boardArray[finalY][finalX] = piece; //set array to new piece's position
+            }
+            else if(boardArray[finalY][finalX] == null) {
                 setNewPieceLocation(piece, finalY, finalX);
             }
             else {
@@ -201,14 +167,12 @@ public class Board {
         if(king.player.playerColor==Color.BLACK && king.y != 0) {      //CHECKING BLACK KING NEGATIVE Y (QUEEN ROOK PUTS IN DANGER)
             for (int i = king.y-1; i > -1; i--) {
                 if(boardArray[i][king.x] != null) { 
-                    System.out.println("something there" + i);
                     if(boardArray[i][king.x] instanceof Rook || boardArray[i][king.x] instanceof Queen) {
                         if(boardArray[i][king.x].player.playerColor == Color.WHITE) {
                             return true;
                         }
                     }
                 }
-                System.out.println("something not there" + i);
             }  
         }
         
@@ -226,4 +190,57 @@ public class Board {
         
         return false;
     }
+    
+    public boolean isCellEmpty(int x, int y) {
+        if (boardArray[y][x] == null) {
+            return true;
+        } 
+        else {
+            return false;
+        }
+    }
+    
+    public void printBoard() {
+        for(int i = 0; i < 9; i++) {
+            if(i < 8) {
+                System.out.print(i + " ");
+                for(int j = 0; j < NUM_COLS; j++) {
+
+                    if(boardArray[i][j] == null) {
+                        System.out.print("|_|");
+                    }
+                    else {
+                        if(boardArray[i][j] instanceof Pawn) {
+                            System.out.print("|P|");
+                        }
+                        else if(boardArray[i][j] instanceof Rook) {
+                            System.out.print("|R|");
+                        }
+                        else if(boardArray[i][j] instanceof Bishop) {
+                            System.out.print("|B|");
+                        }
+                        else if(boardArray[i][j] instanceof Horse) {
+                            System.out.print("|H|");
+                        }
+                        else if(boardArray[i][j] instanceof Queen) {
+                            System.out.print("|Q|");
+                        }
+                        else if(boardArray[i][j] instanceof King) {
+                            System.out.print("|K|");
+                        }
+                    }
+                }
+                System.out.println();
+            }
+            else {
+                    System.out.print("  ");
+                    for(int j = 0; j < NUM_COLS; j++) {
+                        System.out.print(" "+ (char)(j + 65)+ " ");
+                    }
+                    System.out.println("\n");
+                }
+            }
+    }
 }
+
+
