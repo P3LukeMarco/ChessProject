@@ -19,7 +19,15 @@ public class Horse extends Piece{
 
     @Override
     public boolean isValidPath(int finalX, int finalY) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int xDiff = Math.abs(this.x - finalX);
+        int yDiff = Math.abs(this.y - finalY);
+        
+        if((xDiff == 2 && yDiff == 1) || (xDiff == 1 && yDiff == 2)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override

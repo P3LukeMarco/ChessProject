@@ -23,18 +23,18 @@ public class Rook extends Piece{
         int yDiff = Math.abs(this.y - finalY);
         if(xDiff == 0 || yDiff == 0) {
             Point start = new Point(this.x, this.y);
-                Point end = new Point(finalX, finalY);
-                if(start.equals(end)) { return false; }
-                Point direction = new Point((int)Math.signum(end.x - start.x), (int)Math.signum(end.y - start.y));
-                Point current = new Point(start.x + direction.x, start.y + direction.y);
-                while(!current.equals(end)) {
-                    if(!this.player.currentGame.gameBoard.isCellEmpty(current.x, current.y)) {
-                        return false; //something inbetween start and end points
-                    }
-                    current.x = current.x + direction.x;
-                    current.y = current.y + direction.y;
+            Point end = new Point(finalX, finalY);
+            if(start.equals(end)) { return false; }
+            Point direction = new Point((int)Math.signum(end.x - start.x), (int)Math.signum(end.y - start.y));
+            Point current = new Point(start.x + direction.x, start.y + direction.y);
+            while(!current.equals(end)) {
+                if(!this.player.currentGame.gameBoard.isCellEmpty(current.x, current.y)) {
+                    return false; //something inbetween start and end points
                 }
-                return true; //nothing in between, path IS valid
+                current.x = current.x + direction.x;
+                current.y = current.y + direction.y;
+            }
+            return true; //nothing in between, path IS valid
         }
         return false;
     }
