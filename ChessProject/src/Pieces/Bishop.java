@@ -30,6 +30,7 @@ public class Bishop extends Piece{
             Point current = new Point(start.x + direction.x, start.y + direction.y);
             while(!current.equals(end)) {
                 if(!this.player.currentGame.gameBoard.isCellEmpty(current.x, current.y)) {
+                    System.out.println("hello");
                     return false; //something inbetween start and end points
                 }
                 current.x = current.x + direction.x;
@@ -37,6 +38,7 @@ public class Bishop extends Piece{
             }
             return true; //nothing in between, path IS valid
         }
+        System.out.println("asd");
         return false;
     }
 

@@ -20,7 +20,19 @@ public class Pawn extends Piece {
 
     @Override
     public boolean isValidPath(int finalX, int finalY) {
+        int xDiff = this.x - finalX;
+        int yDiff = this.y - finalY;
+        
         if(this.player.playerColor == Color.BLACK) {
+            if(this.player.currentGame.gameBoard.boardArray[finalY][finalX] != null && this.player.currentGame.gameBoard.boardArray[finalY][finalX].player.playerColor == Color.WHITE) {
+                if(Math.abs(xDiff) == 1 && yDiff == 1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            
             if(this.y - finalY == 1 && this.x - finalX == 0) {
                 return true;
             }
@@ -28,7 +40,16 @@ public class Pawn extends Piece {
                 return false;
             }
         }
+        
         else if(this.player.playerColor == Color.WHITE){
+            if(this.player.currentGame.gameBoard.boardArray[finalY][finalX] != null && this.player.currentGame.gameBoard.boardArray[finalY][finalX].player.playerColor == Color.BLACK) {
+                if(Math.abs(xDiff) == 1 && yDiff == -1) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
             if(finalY - this.y == 1 && this.x - finalX == 0) {
                 return true;
             }
