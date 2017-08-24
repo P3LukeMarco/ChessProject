@@ -18,6 +18,7 @@ import java.awt.Color;
 public class Board {
     private final int NUM_COLS = 8;
     private final int NUM_ROWS = 8;
+    public boolean inCheck;
     public Game game;
     public Piece[][] boardArray;
     public ArrayList<Piece> whitePieces = new ArrayList<Piece>(); 
@@ -155,6 +156,82 @@ public class Board {
         else {
             System.out.println("\n!!!!!!!!!---------INVALID MOVE---------!!!!!!!!!");
         }
+        
+        for (int i=0;i<7;i++) {
+            for (int j=0;j<7;j++) {
+                if(boardArray[j][i] instanceof King) {
+                   if(kingInDanger(boardArray[j][i])) {
+                       inCheck = true;
+                   }
+                }
+            }
+        }
+        if(inCheck)
+            System.out.println("IN CHECK");
+        else
+            System.out.println("NOT IN CHECK");
     }
     
+    public boolean kingInDanger(Piece king) {
+        if(king.player.playerColor==Color.BLACK && king.x != 0) {      //CHECKING BLACK KING NEGATIVE X (QUEEN/ROOK PUTS IN DANGER)
+            for (int i = king.x-1; i>0; i--) {
+                if(boardArray[king.y][i] != null) { 
+                    if(boardArray[king.y][i].player.playerColor==Color.BLACK) {
+                        return false;
+                    }
+                    if(boardArray[king.y][i] instanceof Rook || boardArray[king.y][i] instanceof Queen) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;   
+        }
+        
+        if(king.player.playerColor==Color.BLACK && king.x != 7) {      //CHECKING BLACK KING POSITIVE X (QUEEN ROOK PUTS IN DANGER)
+            for (int i = king.x+1; i<7; i++) {
+                if(boardArray[king.y][i] != null) { 
+                    if(boardArray[king.y][i].player.playerColor==Color.BLACK) {
+                        return false;
+                    }
+                    if(boardArray[king.y][i] instanceof Rook || boardArray[king.y][i] instanceof Queen) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;   
+        }
+        
+        if(king.player.playerColor==Color.BLACK && king.y != 0) {      //CHECKING BLACK KING NEGATIVE Y (QUEEN ROOK PUTS IN DANGER)
+            for (int i = king.y-1; i>0; i--) {
+                if(boardArray[i][king.x] != null) { 
+                    if(boardArray[i][king.x].player.playerColor==Color.BLACK) {
+                        return false;
+                    }
+                    if(boardArray[i][king.x] instanceof Rook || boardArray[king.y][i] instanceof Queen) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;   
+        }
+        
+        if(king.player.playerColor==Color.BLACK && king.y != 7) {      //CHECKING BLACK KING POSITIVE Y (QUEEN ROOK PUTS IN DANGER)
+            for (int i = king.y+1; i<7; i++) {
+                if(boardArray[i][king.x] != null) { 
+                    if(boardArray[i][king.x].player.playerColor==Color.BLACK) {
+                        return false;
+                    }
+                    if(boardArray[i][king.x] instanceof Rook || boardArray[king.y][i] instanceof Queen) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;   
+        }     
+        return false;
+    }
 }
