@@ -42,24 +42,24 @@ public class PlayerScores {
     public void addPlayer(Player player, int score){
         Scanner option = new Scanner(System.in);
         int index = 0;
-        if(set.containsKey(player.playerName)) {
-            System.out.println(player.playerName + " has existing score, type yes to overwrite or no to restart");
+        String name = player.playerName.toUpperCase();
+        if(set.containsKey(name)) {
+            System.out.println(name + " has existing score, type yes to overwrite or no to restart");
             if(option.nextLine().equals("yes")) {
-                set.replace(player.playerName, score);
+                set.replace(name, score);
             }
         }
         else {
-            set.put(player.playerName, score);
+            set.put(name, score);
             System.out.println("player saved");
-        }
-        
-        try(FileWriter fw = new FileWriter("ExistingPlayers.txt", true);
+            try(FileWriter fw = new FileWriter("ExistingPlayers.txt", true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter out = new PrintWriter(bw))
-        {
-            out.println(player.playerName + player.playerScore);
-            
-        } catch (IOException e) {}
+            {
+                out.println(name + player.playerScore);
+
+            } catch (IOException e) {}
+        }
     }
     
     public void load() {
@@ -73,7 +73,7 @@ public class PlayerScores {
                 String newString1 = "";
                 current = Integer.parseInt(line.replaceAll("[\\D]", ""));
                 newString1 += line.replaceAll("[^A-Za-z]+", "");
-                set.put(newString1, current);
+                set.put(newString1.toUpperCase(), current);
             }
             fr.close();
             inputStream.close();
