@@ -23,6 +23,8 @@ public class Board {
     public Piece[][] boardArray;
     public ArrayList<Piece> whitePieces = new ArrayList<Piece>(); 
     public ArrayList<Piece> blackPieces = new ArrayList<Piece>();
+    public boolean blackTurn = true;
+    public boolean pieceMoved = false;
     
     public Board (Game game) {
         this.game = game;
@@ -111,16 +113,24 @@ public class Board {
                 piece.y = finalY; //set piece's new location
                 piece.x = finalX;
                 boardArray[finalY][finalX] = piece; //set array to new piece's position
+                if(blackTurn) { blackTurn = false; }
+                else { blackTurn = true; }
+                pieceMoved = true;
             }
             else if(boardArray[finalY][finalX] == null) {
                 setNewPieceLocation(piece, finalY, finalX);
+                if(blackTurn) { blackTurn = false; }
+                else { blackTurn = true; }
+                pieceMoved = true;
             }
             else {
                 System.out.println("\n!!!!!!!!!---------INVALID MOVE---------!!!!!!!!!");
+                pieceMoved = false;
             }
         }
         else {
             System.out.println("\n!!!!!!!!!---------INVALID MOVE---------!!!!!!!!!");
+            pieceMoved = false;
         }
         
         for (int i=0;i<8;i++) {
