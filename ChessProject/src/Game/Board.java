@@ -90,6 +90,8 @@ public class Board {
     public boolean pieceIsCapturing(Piece piece, int finalX, int finalY) {
         if(boardArray[finalY][finalX]!= null && boardArray[finalY][finalX].player != piece.player) {
             System.out.println("Capturing Piece");
+            piece.player.playerScore++;
+            System.out.println(piece.player.playerName + "gets 1 point");
             return true;
         }
         else {

@@ -23,7 +23,11 @@ public class ChessProject {
     public int initialY = 0;
     public int finalX = 0;
     public int finalY = 0;
+    public PlayerScores scores;
     
+    public ChessProject() {
+        scores = new PlayerScores();
+    }
     /**
      * @param args the command line arguments
      */
@@ -52,11 +56,11 @@ public class ChessProject {
         do {
             System.out.println("Type in the following options for your current Game");
             sleep.setSleep(700);
-            System.out.println(" ____________        ____________        ____________        ____________ ");
-            System.out.println("(            )      (            )      (            )      (            )");
-            System.out.println("(   \'Start\'  )      (   \'Rules\'  )      (   \'Quit\'   )      (   \'Load\'   )");
-            System.out.println("(____________)      (____________)      (____________)      (____________)");
-            System.out.println(" (START Game)        (Chess Rules)    (Close Current Game)    (Load Game)\n");
+            System.out.println(" ____________        ____________        ____________");
+            System.out.println("(            )      (            )      (            )");
+            System.out.println("(   \'Start\'  )      (   \'Rules\'  )      (   \'Quit\'");
+            System.out.println("(____________)      (____________)      (____________)");
+            System.out.println(" (START Game)        (Chess Rules)    (Close Current Game)\n");
             
             System.out.print(">>>>>>>  ");
             option = keyboard.nextLine();
@@ -75,10 +79,6 @@ public class ChessProject {
             }
             else if(option.equalsIgnoreCase("quit")) { System.exit(0);}
             
-            else if(option.equalsIgnoreCase("load")) {
-                
-            }
-            
         }while(!option.equalsIgnoreCase("start"));
         
     }
@@ -91,6 +91,10 @@ public class ChessProject {
         Break sleep = new Break(300);
         System.out.println("----!!You have started a new Game of Chess!!----\n");
         
+        System.out.println("PREVIOUS PLAYERS SCORES:");
+        scores.load();
+        System.out.println(scores.set);
+        System.out.println();
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter name of player1 (BLACK) >> ");
         String player1 = keyboard.nextLine();
@@ -109,6 +113,7 @@ public class ChessProject {
             sleep.setSleep(500);
             game.gameBoard.printBoard();
             sleep.setSleep(500);
+            System.out.println("Type 'quit' to end game");
             if(game.gameBoard.blackTurn) {
                 do {
                     System.out.println("Player 1 (Bottom Side)," + player1 + "'s move");
@@ -134,12 +139,19 @@ public class ChessProject {
                 sleep.setSleep(500);
                 game.gameBoard.printBoard();
             }
+            System.out.println(":: CURRENT SCORE :: PLAYER 1 (BLACK): " + playerBlack.playerScore + " PLAYER 2 (WHITE): " + playerWhite.playerScore);
             System.out.println("-------!!!Type the following options!!!-------");
-            System.out.println("\t'NEXT' | 'SURRENDER' | 'SAVE'");
+            System.out.println("'NEXT' | 'SURRENDER' | 'SAVE'");
             input = keyboard.nextLine();
-            
+            if(input.equalsIgnoreCase("save")) {
+                scores.addPlayer(playerBlack, playerBlack.playerScore);
+                scores.addPlayer(playerWhite, playerWhite.playerScore);
+            }
         }while(!input.equalsIgnoreCase("surrender"));
         
+        if(game.gameBoard.blackTurn) {
+            
+        }
     }
     
     public static char convertIndexToRow(int rowIndex) {
@@ -159,6 +171,9 @@ public class ChessProject {
             tokenizer = new StringTokenizer(coordinates, ":");
 
             try {
+                if(coordinates.equalsIgnoreCase("quit")) {
+                    System.exit(0);
+                }
                 if (tokenizer.countTokens() != 2) {
                     throw new IllegalArgumentException("Incorrect format, CHAR:INT PLEASE!!!");
                 }
@@ -197,6 +212,9 @@ public class ChessProject {
             tokenizer = new StringTokenizer(coordinates, ":");
 
             try {
+                if(coordinates.equalsIgnoreCase("quit")) {
+                    System.exit(0);
+                }
                 if (tokenizer.countTokens() != 2) {
                     throw new IllegalArgumentException("Incorrect format, CHAR:INT PLEASE!!!");
                 }

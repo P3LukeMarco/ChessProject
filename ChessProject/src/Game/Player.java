@@ -15,10 +15,12 @@ public class Player {
     public Color playerColor;
     public boolean isWinner = false;
     public Game currentGame;
-    private String playerName;
+    public String playerName;
+    public int playerScore;
     
     public Player(Color playerColor, String playerName) {
         this.playerColor = playerColor;
         this.playerName = playerName;
+        playerScore = 0;
     }
 }
