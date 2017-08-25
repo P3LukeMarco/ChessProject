@@ -148,10 +148,6 @@ public class ChessProject {
                 scores.addPlayer(playerWhite, playerWhite.playerScore);
             }
         }while(!input.equalsIgnoreCase("surrender"));
-        
-        if(game.gameBoard.blackTurn) {
-            
-        }
     }
     
     public static char convertIndexToRow(int rowIndex) {
