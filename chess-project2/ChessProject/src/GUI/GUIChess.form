@@ -274,7 +274,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="10" width="460" height="450"/>
+          <AbsoluteConstraints x="-40" y="0" width="520" height="480"/>
         </Constraint>
       </Constraints>
 
@@ -287,14 +287,34 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;HELP &lt;br/&gt;&lt;br/&gt;&#xa;This is a simple game of chess, the Board Array consists of 8 x 8 tiles, with the y axis starting at 0 and x axis determined by characters. &lt;br/&gt;&#xa;A player wins by capturing the enemy team&apos;s King. &lt;br/&gt;&lt;br/&gt;&#xa;           &#xa;&#x2022; Pawns are unusual because they move and capture in different ways: they move forward, but capture diagonally. Pawns can only move forward one square at a time&lt;br/&gt;&#xa;&#x2022; The bishop may move as far as it wants, but only diagonally.&lt;br/&gt;&#xa;&#x2022; Knights move in a very different way from the other pieces &#x2013; going two squares in one direction, and then one more move at a 90 degree angle, just like the shape of an &apos;L&apos;&lt;br/&gt;&#xa;&#x2022; The rook may move as far as it wants, but only forward, backward, and to the sides.&lt;br/&gt;&#xa;&#x2022; The queen is the most powerful piece. She can move in any one straight direction - forward, backward, sideways, or diagonally - as far as possible as long as she does not move through any of her own pieces.&lt;br/&gt;&#xa;&#x2022; The king is the most important piece, but is one of the weakest. The king can only move one square in any direction - up, down, to the sides, and diagonally. The king may never move himself into check (where he could be captured).&lt;br/&gt;&#xa;&lt;br/&gt;&#xa;To Move your pieces please enter the starting coordinates of your piece followed by the end coordinates. Have Fun! &lt;/html&gt;"/>
+            <Property name="text" type="java.lang.String" value="&lt;html&gt;HELP &lt;br/&gt;&lt;br/&gt; This is a simple game of chess, the Board Array consists of 8 x 8 tiles, with the y axis starting at 0 and x axis determined by characters. &lt;br/&gt; A player wins by capturing the enemy team&apos;s King. &lt;br/&gt;&lt;br/&gt;             &#x2022; Pawns are unusual because they move and capture in different ways: they move forward, but capture diagonally. Pawns can only move forward one square at a time&lt;br/&gt; &#x2022; The bishop may move as far as it wants, but only diagonally.&lt;br/&gt; &#x2022; Knights move in a very different way from the other pieces &#x2013; going two squares in one direction, and then one more move at a 90 degree angle, just like the shape of an &apos;L&apos;&lt;br/&gt; &#x2022; The rook may move as far as it wants, but only forward, backward, and to the sides.&lt;br/&gt; &#x2022; The queen is the most powerful piece. She can move in any one straight direction - forward, backward, sideways, or diagonally - as far as possible as long as she does not move through any of her own pieces.&lt;br/&gt; &#x2022; The king is the most important piece, but is one of the weakest. The king can only move one square in any direction - up, down, to the sides, and diagonally. The king may never move himself into check (where he could be captured).&lt;br/&gt; &lt;br/&gt; To Move your pieces please enter the starting coordinates of your piece followed by the end coordinates. Have Fun! &lt;/html&gt;"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="30" width="450" height="410"/>
+              <AbsoluteConstraints x="60" y="20" width="450" height="410"/>
             </Constraint>
           </Constraints>
         </Component>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="gameBoard">
@@ -312,7 +332,7 @@
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Rook-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Rook-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -322,11 +342,14 @@
             <Property name="borderPainted" type="boolean" value="false"/>
             <Property name="hideActionText" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButton2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Knight-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Knight-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -340,7 +363,7 @@
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Bishop-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Bishop-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -354,7 +377,7 @@
         <Component class="javax.swing.JButton" name="jButton4">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Queen-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Queen-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -368,7 +391,7 @@
         <Component class="javax.swing.JButton" name="jButton5">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\King-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/King-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -382,7 +405,7 @@
         <Component class="javax.swing.JButton" name="jButton6">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Bishop-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Bishop-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -396,7 +419,7 @@
         <Component class="javax.swing.JButton" name="jButton7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Knight-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Knight-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -410,7 +433,7 @@
         <Component class="javax.swing.JButton" name="jButton8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Rook-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Rook-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -424,7 +447,7 @@
         <Component class="javax.swing.JButton" name="jButton9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -438,7 +461,7 @@
         <Component class="javax.swing.JButton" name="jButton10">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -452,7 +475,7 @@
         <Component class="javax.swing.JButton" name="jButton11">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -466,7 +489,7 @@
         <Component class="javax.swing.JButton" name="jButton12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -480,7 +503,7 @@
         <Component class="javax.swing.JButton" name="jButton13">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -494,7 +517,7 @@
         <Component class="javax.swing.JButton" name="jButton14">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -508,7 +531,7 @@
         <Component class="javax.swing.JButton" name="jButton15">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -522,7 +545,7 @@
         <Component class="javax.swing.JButton" name="jButton16">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-Black.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-Black.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -888,7 +911,7 @@
         <Component class="javax.swing.JButton" name="jButton49">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -902,7 +925,7 @@
         <Component class="javax.swing.JButton" name="jButton50">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -916,7 +939,7 @@
         <Component class="javax.swing.JButton" name="jButton51">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -930,7 +953,7 @@
         <Component class="javax.swing.JButton" name="jButton52">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -944,7 +967,7 @@
         <Component class="javax.swing.JButton" name="jButton53">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -958,7 +981,7 @@
         <Component class="javax.swing.JButton" name="jButton54">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -972,7 +995,7 @@
         <Component class="javax.swing.JButton" name="jButton55">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -986,7 +1009,7 @@
         <Component class="javax.swing.JButton" name="jButton56">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Pawn-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Pawn-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1000,7 +1023,7 @@
         <Component class="javax.swing.JButton" name="jButton57">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Rook-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Rook-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1014,7 +1037,7 @@
         <Component class="javax.swing.JButton" name="jButton58">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Knight-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Knight-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1028,7 +1051,7 @@
         <Component class="javax.swing.JButton" name="jButton59">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Bishop-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Bishop-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1042,7 +1065,7 @@
         <Component class="javax.swing.JButton" name="jButton60">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Queen-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Queen-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1056,7 +1079,7 @@
         <Component class="javax.swing.JButton" name="jButton61">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\King-White.png"/>
+              <Image iconType="3" name="/GUI/assets/King-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1070,7 +1093,7 @@
         <Component class="javax.swing.JButton" name="jButton62">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Bishop-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Bishop-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1084,7 +1107,7 @@
         <Component class="javax.swing.JButton" name="jButton63">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Knight-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Knight-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1098,7 +1121,7 @@
         <Component class="javax.swing.JButton" name="jButton64">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\assets\Rook-White.png"/>
+              <Image iconType="3" name="/GUI/assets/Rook-White.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -1119,7 +1142,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="0" width="480" height="480"/>
+          <AbsoluteConstraints x="-60" y="-60" width="540" height="540"/>
         </Constraint>
       </Constraints>
 
@@ -1130,12 +1153,12 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\src\logo.png"/>
+              <Image iconType="3" name="/logo.png"/>
             </Property>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="-50" y="150" width="-1" height="330"/>
+              <AbsoluteConstraints x="0" y="0" width="740" height="740"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -1144,13 +1167,13 @@
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="E:\2017 - SEM 2\Program Design and Construction\PROJECT\chess-project2\ChessProject\src\wallpaper.jpg"/>
+          <Image iconType="3" name="/wallpaper.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="-410" y="0" width="1010" height="480"/>
+          <AbsoluteConstraints x="-350" y="-90" width="830" height="560"/>
         </Constraint>
       </Constraints>
     </Component>

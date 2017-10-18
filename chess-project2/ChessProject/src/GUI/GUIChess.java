@@ -6,6 +6,7 @@
 package GUI;
 
 import java.awt.Color;
+import javax.swing.JButton;
 
 /**
  *
@@ -49,6 +50,7 @@ public class GUIChess extends javax.swing.JFrame {
         turnLabel = new javax.swing.JLabel();
         helpPage = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         gameBoard = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -126,7 +128,7 @@ public class GUIChess extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         startingPage.setBackground(new java.awt.Color(46, 46, 46));
-        startingPage.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        startingPage.setBorder(new javax.swing.border.SoftBevelBorder(0));
         startingPage.setForeground(new java.awt.Color(153, 153, 153));
         startingPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -245,104 +247,122 @@ public class GUIChess extends javax.swing.JFrame {
         helpPage.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("<html>HELP <br/><br/>\nThis is a simple game of chess, the Board Array consists of 8 x 8 tiles, with the y axis starting at 0 and x axis determined by characters. <br/>\nA player wins by capturing the enemy team's King. <br/><br/>\n           \n• Pawns are unusual because they move and capture in different ways: they move forward, but capture diagonally. Pawns can only move forward one square at a time<br/>\n• The bishop may move as far as it wants, but only diagonally.<br/>\n• Knights move in a very different way from the other pieces – going two squares in one direction, and then one more move at a 90 degree angle, just like the shape of an 'L'<br/>\n• The rook may move as far as it wants, but only forward, backward, and to the sides.<br/>\n• The queen is the most powerful piece. She can move in any one straight direction - forward, backward, sideways, or diagonally - as far as possible as long as she does not move through any of her own pieces.<br/>\n• The king is the most important piece, but is one of the weakest. The king can only move one square in any direction - up, down, to the sides, and diagonally. The king may never move himself into check (where he could be captured).<br/>\n<br/>\nTo Move your pieces please enter the starting coordinates of your piece followed by the end coordinates. Have Fun! </html>");
-        helpPage.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 450, 410));
+        jLabel4.setText("<html>HELP <br/><br/> This is a simple game of chess, the Board Array consists of 8 x 8 tiles, with the y axis starting at 0 and x axis determined by characters. <br/> A player wins by capturing the enemy team's King. <br/><br/>             • Pawns are unusual because they move and capture in different ways: they move forward, but capture diagonally. Pawns can only move forward one square at a time<br/> • The bishop may move as far as it wants, but only diagonally.<br/> • Knights move in a very different way from the other pieces – going two squares in one direction, and then one more move at a 90 degree angle, just like the shape of an 'L'<br/> • The rook may move as far as it wants, but only forward, backward, and to the sides.<br/> • The queen is the most powerful piece. She can move in any one straight direction - forward, backward, sideways, or diagonally - as far as possible as long as she does not move through any of her own pieces.<br/> • The king is the most important piece, but is one of the weakest. The king can only move one square in any direction - up, down, to the sides, and diagonally. The king may never move himself into check (where he could be captured).<br/> <br/> To Move your pieces please enter the starting coordinates of your piece followed by the end coordinates. Have Fun! </html>");
+        helpPage.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 450, 410));
 
-        getContentPane().add(helpPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 460, 450));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        helpPage.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        getContentPane().add(helpPage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 520, 480));
 
         gameBoard.setLayout(new java.awt.GridLayout(8, 8));
 
-        jButton1.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Rook-Black.png")); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Rook-Black.png"))); // NOI18N
         jButton1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton1.setBorderPainted(false);
         jButton1.setHideActionText(true);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         gameBoard.add(jButton1);
 
-        jButton2.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Knight-Black.png")); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Knight-Black.png"))); // NOI18N
         jButton2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton2.setBorderPainted(false);
         jButton2.setHideActionText(true);
         gameBoard.add(jButton2);
 
-        jButton3.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Bishop-Black.png")); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Bishop-Black.png"))); // NOI18N
         jButton3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton3.setBorderPainted(false);
         jButton3.setHideActionText(true);
         gameBoard.add(jButton3);
 
-        jButton4.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Queen-Black.png")); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Queen-Black.png"))); // NOI18N
         jButton4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton4.setBorderPainted(false);
         jButton4.setHideActionText(true);
         gameBoard.add(jButton4);
 
-        jButton5.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\King-Black.png")); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/King-Black.png"))); // NOI18N
         jButton5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton5.setBorderPainted(false);
         jButton5.setHideActionText(true);
         gameBoard.add(jButton5);
 
-        jButton6.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Bishop-Black.png")); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Bishop-Black.png"))); // NOI18N
         jButton6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton6.setBorderPainted(false);
         jButton6.setHideActionText(true);
         gameBoard.add(jButton6);
 
-        jButton7.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Knight-Black.png")); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Knight-Black.png"))); // NOI18N
         jButton7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton7.setBorderPainted(false);
         jButton7.setHideActionText(true);
         gameBoard.add(jButton7);
 
-        jButton8.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Rook-Black.png")); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Rook-Black.png"))); // NOI18N
         jButton8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton8.setBorderPainted(false);
         jButton8.setHideActionText(true);
         gameBoard.add(jButton8);
 
-        jButton9.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton9.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton9.setBorderPainted(false);
         jButton9.setHideActionText(true);
         gameBoard.add(jButton9);
 
-        jButton10.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton10.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton10.setBorderPainted(false);
         jButton10.setHideActionText(true);
         gameBoard.add(jButton10);
 
-        jButton11.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton11.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton11.setBorderPainted(false);
         jButton11.setHideActionText(true);
         gameBoard.add(jButton11);
 
-        jButton12.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton12.setBorderPainted(false);
         jButton12.setHideActionText(true);
         gameBoard.add(jButton12);
 
-        jButton13.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton13.setBorderPainted(false);
         jButton13.setHideActionText(true);
         gameBoard.add(jButton13);
 
-        jButton14.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton14.setBorderPainted(false);
         jButton14.setHideActionText(true);
         gameBoard.add(jButton14);
 
-        jButton15.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton15.setBorderPainted(false);
         jButton15.setHideActionText(true);
         gameBoard.add(jButton15);
 
-        jButton16.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-Black.png")); // NOI18N
+        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-Black.png"))); // NOI18N
         jButton16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton16.setBorderPainted(false);
         jButton16.setHideActionText(true);
@@ -508,97 +528,97 @@ public class GUIChess extends javax.swing.JFrame {
         jButton48.setHideActionText(true);
         gameBoard.add(jButton48);
 
-        jButton49.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton49.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton49.setBorderPainted(false);
         jButton49.setHideActionText(true);
         gameBoard.add(jButton49);
 
-        jButton50.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton50.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton50.setBorderPainted(false);
         jButton50.setHideActionText(true);
         gameBoard.add(jButton50);
 
-        jButton51.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton51.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton51.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton51.setBorderPainted(false);
         jButton51.setHideActionText(true);
         gameBoard.add(jButton51);
 
-        jButton52.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton52.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton52.setBorderPainted(false);
         jButton52.setHideActionText(true);
         gameBoard.add(jButton52);
 
-        jButton53.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton53.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton53.setBorderPainted(false);
         jButton53.setHideActionText(true);
         gameBoard.add(jButton53);
 
-        jButton54.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton54.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton54.setBorderPainted(false);
         jButton54.setHideActionText(true);
         gameBoard.add(jButton54);
 
-        jButton55.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton55.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton55.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton55.setBorderPainted(false);
         jButton55.setHideActionText(true);
         gameBoard.add(jButton55);
 
-        jButton56.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Pawn-White.png")); // NOI18N
+        jButton56.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Pawn-White.png"))); // NOI18N
         jButton56.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton56.setBorderPainted(false);
         jButton56.setHideActionText(true);
         gameBoard.add(jButton56);
 
-        jButton57.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Rook-White.png")); // NOI18N
+        jButton57.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Rook-White.png"))); // NOI18N
         jButton57.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton57.setBorderPainted(false);
         jButton57.setHideActionText(true);
         gameBoard.add(jButton57);
 
-        jButton58.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Knight-White.png")); // NOI18N
+        jButton58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Knight-White.png"))); // NOI18N
         jButton58.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton58.setBorderPainted(false);
         jButton58.setHideActionText(true);
         gameBoard.add(jButton58);
 
-        jButton59.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Bishop-White.png")); // NOI18N
+        jButton59.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Bishop-White.png"))); // NOI18N
         jButton59.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton59.setBorderPainted(false);
         jButton59.setHideActionText(true);
         gameBoard.add(jButton59);
 
-        jButton60.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Queen-White.png")); // NOI18N
+        jButton60.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Queen-White.png"))); // NOI18N
         jButton60.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton60.setBorderPainted(false);
         jButton60.setHideActionText(true);
         gameBoard.add(jButton60);
 
-        jButton61.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\King-White.png")); // NOI18N
+        jButton61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/King-White.png"))); // NOI18N
         jButton61.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton61.setBorderPainted(false);
         jButton61.setHideActionText(true);
         gameBoard.add(jButton61);
 
-        jButton62.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Bishop-White.png")); // NOI18N
+        jButton62.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Bishop-White.png"))); // NOI18N
         jButton62.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton62.setBorderPainted(false);
         jButton62.setHideActionText(true);
         gameBoard.add(jButton62);
 
-        jButton63.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Knight-White.png")); // NOI18N
+        jButton63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Knight-White.png"))); // NOI18N
         jButton63.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton63.setBorderPainted(false);
         jButton63.setHideActionText(true);
         gameBoard.add(jButton63);
 
-        jButton64.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\assets\\Rook-White.png")); // NOI18N
+        jButton64.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/assets/Rook-White.png"))); // NOI18N
         jButton64.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jButton64.setBorderPainted(false);
         jButton64.setHideActionText(true);
@@ -609,25 +629,25 @@ public class GUIChess extends javax.swing.JFrame {
         overlay.setBackground(new java.awt.Color(0, 0, 0));
         overlay.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\src\\logo.png")); // NOI18N
-        overlay.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 150, -1, 330));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+        overlay.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 740));
 
-        getContentPane().add(overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 480));
+        getContentPane().add(overlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -60, 540, 540));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("E:\\2017 - SEM 2\\Program Design and Construction\\PROJECT\\chess-project2\\ChessProject\\src\\wallpaper.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/wallpaper.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-410, 0, 1010, 480));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-350, -90, 830, 560));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void player2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player2ActionPerformed
-        //Not Needed
+        
     }//GEN-LAST:event_player2ActionPerformed
 
     private void player1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_player1ActionPerformed
-        //Not Needed
+        
     }//GEN-LAST:event_player1ActionPerformed
 
     private void helpIsSelected(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_helpIsSelected
@@ -641,6 +661,7 @@ public class GUIChess extends javax.swing.JFrame {
 
     private void startPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startPerformed
         if(evt.getSource() == start) {
+            helpPage.setVisible(false);
             player1Name = player1.getText();
             player2Name = player2.getText();
             gameBoard.setVisible(true);
@@ -655,6 +676,12 @@ public class GUIChess extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JButton button = (JButton) evt.getSource();
+        String name = button.getIcon().toString();
+        System.out.println(name + "was selected");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
 //----------------------------------------------------------------------------------------------------------------------------------------    
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -662,10 +689,7 @@ public class GUIChess extends javax.swing.JFrame {
 //----------------------------------------------------------------------------------------------------------------------------------------        
     
     //GAME LOGIC
-    
-    private void setPieceOnButton() {
-        
-    }
+   
     
     
     
@@ -794,6 +818,7 @@ public class GUIChess extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JProgressBar jProgressBar2;
     private javax.swing.JPanel overlay;
